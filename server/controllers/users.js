@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-07 20:26:35
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-07 20:31:52
+ * @LastEditTime: 2020-05-11 19:59:05
  * @Description: file content
  */
 const UserModule = require('../modules/users')
@@ -57,7 +57,7 @@ class UserControler {
     }
 
 
-    static async login(ctx){
+    static async addUsers(ctx){
         const query = ctx.request.body;
         if(query.password && query.username){
             try{
