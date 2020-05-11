@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-04 13:10:33
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-07 20:32:45
+ * @LastEditTime: 2020-05-11 19:58:39
  * @Description: file content
  */
 const router = require('koa-router')()
@@ -11,7 +11,7 @@ router.prefix('/api/users')
 
 router.get('/userList', UserController.users)
 router.delete('/users/:id', UserController.delUser)
-router.post('/login', UserController.login)
+router.post('/register', UserController.addUsers)
 
 
 module.exports = router
