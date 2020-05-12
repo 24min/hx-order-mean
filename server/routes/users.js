@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-04 13:10:33
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 19:58:39
+ * @LastEditTime: 2020-05-12 18:39:15
  * @Description: file content
  */
 const router = require('koa-router')()
@@ -15,3 +15,4 @@ router.post('/register', UserController.addUsers)
 
 
 module.exports = router
+
