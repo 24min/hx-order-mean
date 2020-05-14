@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-14 22:32:49
+ * @LastEditTime: 2020-05-14 22:35:39
  * @Description: file content
  */
 import React from 'react';
@@ -53,7 +53,7 @@ function Login() {
                         <Button type="primary" htmlType="submit" block>
                             登录
                        </Button>
-                       或者 <Link to="register">立即注册⚡</Link>
+                       或者 <Link to="register">立即注册<span role="img" aria-label="注册">⚡</span></Link>
                     </Form.Item>
                 </Form>
             </div>
