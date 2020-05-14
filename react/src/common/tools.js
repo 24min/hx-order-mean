@@ -2,14 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:43:08
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 20:43:49
- * @Description: file content
- */
-/*
- * @Author: 24min
- * @Date: 2020-03-13 12:57:49
- * @LastEditors: fanjf
- * @LastEditTime: 2020-04-21 13:31:17
+ * @LastEditTime: 2020-05-14 22:18:10
  * @Description: 常用工具函数
  */
 const inBrowser = typeof window !== 'undefined';
