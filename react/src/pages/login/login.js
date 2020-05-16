@@ -2,11 +2,11 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 08:55:36
+ * @LastEditTime: 2020-05-16 09:47:07
  * @Description: file content
  */
 import React from 'react';
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.scss';
@@ -33,7 +33,6 @@ function Login() {
                     className="login-form"
                     {...layout}
                     name="basic"
-                    initialValues={{ remember: true }}
                     onFinish={onFinish}
                 >
                     <Form.Item

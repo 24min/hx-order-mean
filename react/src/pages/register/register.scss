@@ -1,3 +1,18 @@
-.register{
-    color:bisque;
+.register {
+    // color:red;
+    height: 100vh;
+    overflow: hidden;
+    background: url("../../image/8242.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .register-container {
+        width: 500px;
+        height: 650px;
+        background-color: white;
+        & .register-form {
+            margin-top: 50px;
+        }
+    }
 }
