@@ -2,15 +2,15 @@
  * @Author: 24min
  * @Date: 2020-04-01 19:47:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 21:13:05
+ * @LastEditTime: 2020-05-16 14:56:57
  * @Description: 公共请求方法的文件
  */
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios'
 import { defaultConfig } from "../api/config"
 import { dataType, isEmptyObject, isEmptyArray, keywordFormat, downloadFile } from "../common/tools"
-import { Spin, notification } from 'element-ui';
+import { Spin, notification } from 'antd';
 
 let num = 0
 let token = localStorage.getItem('token') || ''

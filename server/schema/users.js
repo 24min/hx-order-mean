@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-07 19:58:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 11:02:29
+ * @LastEditTime: 2020-05-16 15:29:57
  * @Description: file content
  */
 const users = (sequelize, DataTypes) => {
@@ -51,7 +51,8 @@ const users = (sequelize, DataTypes) => {
         jobNumber: {
             type: DataTypes.STRING,
             allowNull: false,
-            field: 'jobNumber'
+            field: 'jobNumber',
+            unique: true
         },
         brith: {
             type: DataTypes.DATE

@@ -2,15 +2,16 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 11:06:07
+ * @LastEditTime: 2020-05-16 15:57:30
  * @Description: file content 用户名 邮箱 工号（n） 性别 手机 密码 组织 生日（n）
  */
 import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 
-import { Form, Input, Button, Tooltip, Radio, DatePicker } from 'antd'
+import { Form, Input, Button, Tooltip, Radio, DatePicker, message } from 'antd'
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
+import { addUser } from "../../api/service/userService"
 import './register.scss';
 
 const layout = {
@@ -22,6 +23,7 @@ const tailLayout = {
 };
 /**注册的React 函数 */
 function Register() {
+  let history = useHistory()
   /**表单提交函数 */
   const onFinish = (value) => {
 
@@ -30,6 +32,15 @@ function Register() {
       'brith': value.brith.format('YYYY-MM-DD')
     }
     console.log('value', result)
+    addUser(result).then(res => {
+      if (res.code == 200) {
+        message.success({ content: '注册成功!' })
+        history.push('/login')
+      } else {
+        message.error({ content: '注册失败!' })
+      }
+      console.log('register', res)
+    })
     // history.push('/home')
   }
   return (
