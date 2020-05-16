@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-07 19:58:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 19:54:38
+ * @LastEditTime: 2020-05-16 11:02:29
  * @Description: file content
  */
 const users = (sequelize, DataTypes) => {
@@ -23,15 +23,15 @@ const users = (sequelize, DataTypes) => {
             allowNull: false,
             field: 'role'
         },
-        status:{
-            type:DataTypes.ENUM('normal','disable'),
+        status: {
+            type: DataTypes.ENUM('normal', 'disable'),
             allowNull: false,
             field: 'status'
         },
-        phone:{
-            type:DataTypes.STRING,
+        phone: {
+            type: DataTypes.STRING,
             allowNull: false,
-            field:'phone',
+            field: 'phone',
         },
         username: {
             type: DataTypes.STRING,
@@ -43,10 +43,18 @@ const users = (sequelize, DataTypes) => {
             allowNull: false,
             field: 'password'
         },
-        company:{
-            type:DataTypes.STRING,
+        company: {
+            type: DataTypes.STRING,
             allowNull: false,
             field: 'company'
+        },
+        jobNumber: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            field: 'jobNumber'
+        },
+        brith: {
+            type: DataTypes.DATE
         },
         createdAt: {
             type: DataTypes.DATE

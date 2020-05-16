@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 10:59:25
+ * @LastEditTime: 2020-05-16 11:06:07
  * @Description: file content 用户名 邮箱 工号（n） 性别 手机 密码 组织 生日（n）
  */
 import React from 'react';
@@ -114,7 +114,7 @@ function Register() {
           <Form.Item label="手机" name="phone">
             <Input placeholder="请输入你的手机号"></Input>
           </Form.Item>
-          <Form.Item label="组织" name="org">
+          <Form.Item label="组织" name="company">
             <Input placeholder="请输入你的单位"></Input>
           </Form.Item>
           <Form.Item label="生日" name="brith">
