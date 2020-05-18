@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-04 13:10:33
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-18 18:30:29
+ * @LastEditTime: 2020-05-18 20:15:20
  * @Description: file content
  */ 
 const Koa = require('koa')
@@ -15,7 +15,7 @@ const logger = require('koa-logger')
 
 const index = require('./routes/index')
 const users = require('./routes/usersRoutes')
-
+const commodity = require('./routes/commodityRoutes')
 // error handler
 onerror(app)
 
@@ -42,7 +42,7 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
-
+app.use(commodity.routes(), commodity.allowedMethods())
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
