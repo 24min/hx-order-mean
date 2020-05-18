@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-18 18:13:32
+ * @LastEditTime: 2020-05-18 20:45:29
  * @Description: file content 用户名 邮箱 工号（n） 性别 手机 密码 组织 生日（n）
  */
 import React from 'react';
@@ -33,7 +33,7 @@ function Register() {
     }
     console.log('value', result)
     addUser(result).then(res => {
-      if (res.code == 200) {
+      if (res.code === 200) {
         message.success({ content: '注册成功!' })
         history.push('/login')
       } else {
