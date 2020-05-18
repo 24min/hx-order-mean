@@ -2,10 +2,10 @@
  * @Author: 24min
  * @Date: 2020-05-07 20:26:35
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 19:59:05
+ * @LastEditTime: 2020-05-18 18:29:25
  * @Description: file content
  */
-const UserModule = require('../modules/users')
+const UserModule = require('../modules/usersModules')
 class UserControler {
     static async users(ctx){
         const { query } = ctx.request;

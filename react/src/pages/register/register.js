@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 15:57:30
+ * @LastEditTime: 2020-05-18 18:13:32
  * @Description: file content 用户名 邮箱 工号（n） 性别 手机 密码 组织 生日（n）
  */
 import React from 'react';
@@ -37,9 +37,8 @@ function Register() {
         message.success({ content: '注册成功!' })
         history.push('/login')
       } else {
-        message.error({ content: '注册失败!' })
+        message.error({ content: '注册失败,请联系开发人员查看!' })
       }
-      console.log('register', res)
     })
     // history.push('/home')
   }
