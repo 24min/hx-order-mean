@@ -1,3 +1,10 @@
+/*
+ * @Author: 24min
+ * @Date: 2020-05-04 13:10:33
+ * @LastEditors: 24min
+ * @LastEditTime: 2020-05-18 18:30:29
+ * @Description: file content
+ */ 
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -7,7 +14,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
 const index = require('./routes/index')
-const users = require('./routes/users')
+const users = require('./routes/usersRoutes')
 
 // error handler
 onerror(app)

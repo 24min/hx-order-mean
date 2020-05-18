@@ -2,11 +2,11 @@
  * @Author: 24min
  * @Date: 2020-05-04 13:10:33
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-12 18:39:15
+ * @LastEditTime: 2020-05-18 18:29:56
  * @Description: file content
  */
 const router = require('koa-router')()
-const UserController = require('../controllers/users')
+const UserController = require('../controllers/usersControllers')
 router.prefix('/api/users')
 
 router.get('/userList', UserController.users)

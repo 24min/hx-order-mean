@@ -2,12 +2,12 @@
  * @Author: 24min
  * @Date: 2020-05-07 20:13:18
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-11 19:59:39
+ * @LastEditTime: 2020-05-18 18:28:37
  * @Description: file content
  */
 const db = require('../config/db')
 const Sequelize = db.sequelize;
-const User = Sequelize.import('../schema/users.js')
+const User = Sequelize.import('../schema/usersSchema.js')
 User.sync({ force: false })
 
 class UserModule {
@@ -32,8 +32,10 @@ class UserModule {
     }
 
     static async addUsers(query) {
+        console.log('node', query)
+        const result = { ...query, 'role': 'user', 'status': 'normal' }
         return await User.create({
-            ...query
+            ...result
         })
     }
 }
