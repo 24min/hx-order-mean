@@ -2,8 +2,8 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:12:47
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 20:09:03
- * @Description: 
+ * @LastEditTime: 2020-05-19 20:46:55
+ * @Description: BrowserRouter
  */
 import React from 'react';
 import './App.css';
@@ -13,7 +13,7 @@ import Home from "./pages/home/home"
 import Footer from "./components/footer/footer"
 import NoMatch from './components/noMatch/noMatch'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect
