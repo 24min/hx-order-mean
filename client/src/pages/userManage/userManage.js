@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 19:15:25
+ * @LastEditTime: 2020-05-19 19:44:23
  * @Description: 超管用户管理 组件
  */
 import React from 'react'
@@ -11,7 +11,7 @@ import "./userManage.scss"
 function UserManage() {
     return (
         <h1>
-            用户管理🍤
+            用户管理
         </h1>
     )
 }

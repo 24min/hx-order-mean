@@ -11,7 +11,7 @@ import "./announcementManage.scss"
 function AnnouncementManage() {
     return (
         <h1>
-            公告管理🍤
+            公告管理
         </h1>
     )
 }

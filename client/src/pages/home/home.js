@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 19:27:30
+ * @LastEditTime: 2020-05-19 19:47:56
  * @Description: 主页 
  * 左导航分为  
  * 商品信息(商品列表 商品管理【普通用户无法查看设置服务费等 什么时候开放购买等】 商品统计【普通用户无法查看，比如销量统计】 )
@@ -11,7 +11,12 @@
  * 公告管理
  */
 import React from 'react';
-import { BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect, Link
+} from "react-router-dom";
 import { Menu, Row, Col } from 'antd'
 
 import CommodityList from '../commodity/commodityList'
@@ -47,8 +52,8 @@ const navList = [
     },
     {
       name: '我的信息',
-      name_en: 'myData',
-      route: '/myData',
+      name_en: 'myInfo',
+      route: '/myInfo',
       auth: ['admin', 'user', 'procurement']
     }]
   },
@@ -81,6 +86,32 @@ const navList = [
   }
 ]
 
+const routes = [{
+  path: '/home/commodityList',
+  component: CommodityList
+},
+{
+  path: '/home/myOrder',
+  component: MyOrder
+},
+{
+  path: '/home/myInfo',
+  component: MyInfo
+},
+{
+  path: '/home/userManage',
+  component: UserManage
+},
+{
+  path: '/home/commodityManage',
+  component: CommodityManage
+},
+{
+  path: '/home/announcementManage',
+  component: AnnouncementManage
+}
+]
+
 function Home() {
   return (
     <div className="home">
@@ -98,7 +129,6 @@ function Home() {
                         {child.name}
                       </Link>
                     </Menu.Item>)
-
                   })}
                 </SubMenu>)
               } else {
@@ -112,7 +142,21 @@ function Home() {
           </Menu>
         </Col>
         <Col span={18}>
-          右边内容
+          {/* 右边内容 */}
+          <Router>
+            <Switch>
+              {/* <Route path="/home">
+                <Redirect to="/home/commodityList"></Redirect>
+              </Route> */}
+              {routes.map((item, index) =>
+                (
+                  <Route key={index} path={item.path}>
+                    <item.component />
+                  </Route>
+                )
+              )}
+            </Switch>
+          </Router>
           {/* <CommodityList></CommodityList> */}
         </Col>
       </Row>
