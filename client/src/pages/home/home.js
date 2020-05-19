@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 12:47:32
+ * @LastEditTime: 2020-05-19 19:27:30
  * @Description: 主页 
  * 左导航分为  
  * 商品信息(商品列表 商品管理【普通用户无法查看设置服务费等 什么时候开放购买等】 商品统计【普通用户无法查看，比如销量统计】 )
@@ -11,36 +11,29 @@
  * 公告管理
  */
 import React from 'react';
-import { Menu, Row, Col } from 'antd'
-import './home.scss';
 import { BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+import { Menu, Row, Col } from 'antd'
+
+import CommodityList from '../commodity/commodityList'
+import MyOrder from '../myOrder/myOrder'
+import MyInfo from '../myInfo/myInfo'
+import UserManage from '../userManage/userManage'
+import CommodityManage from '../commodityManage/commodtyManage'
+import AnnouncementManage from '../announcementManage/announcementManage'
+
+import './home.scss';
+
+
+
 const { SubMenu } = Menu;
 
 const navList = [
   {
-    name: '商品信息',
-    name_en: 'commodityInfo',
-    route: '/commodityInfo',
+    name: '商品选购',
+    name_en: 'commodityList',
+    route: '/commodityList',
     auth: ['admin', 'user', 'procurement'],
-    children: [{
-      name: '商品选购',
-      name_en: 'commodityList',
-      route: '/commodityList',
-      auth: ['admin', 'user', 'procurement']
-    },
-    {
-      name: '商品管理',
-      name_en: 'commodityManage',
-      route: '/commodityManage',
-      auth: ['admin', 'procurement']
-    },
-    {
-      name: '商品统计',
-      name_en: 'commodityStatic',
-      route: '/commodityStatic',
-      auth: ['admin', 'procurement']
-    }
-    ]
+    children: []
   }, {
     name: '个人信息',
     name_en: 'myInfo',
@@ -53,24 +46,38 @@ const navList = [
       auth: ['admin', 'user', 'procurement']
     },
     {
-      name: '我的资料',
+      name: '我的信息',
       name_en: 'myData',
       route: '/myData',
       auth: ['admin', 'user', 'procurement']
     }]
-  }, {
-    name: '用户管理',
-    name_en: 'userManage',
-    route: '/userManage',
-    auth: ['admin'],
-    children: []
   },
   {
-    name: '公告管理',
-    name_en: 'announcementManage',
-    route: '/announcementManage',
+    name: '设置管理',
+    name_en: 'setManage',
+    route: '/setManage',
     auth: ['admin', 'procurement'],
-    children: []
+    children: [
+      {
+        name: '用户管理',
+        name_en: 'userManage',
+        route: '/userManage',
+        auth: ['admin'],
+      },
+      {
+        name: '商品管理',
+        name_en: 'commodityManage',
+        route: '/commodityManage',
+        auth: ['admin', 'procurement']
+      },
+      {
+        name: '公告管理',
+        name_en: 'announcementManage',
+        route: '/announcementManage',
+        auth: ['admin', 'procurement'],
+        children: []
+      }
+    ]
   }
 ]
 
@@ -87,7 +94,7 @@ function Home() {
                 return (<SubMenu key={item.name_en} title={item.name}>
                   {item.children.map(child => {
                     return (<Menu.Item key={child.name_en} >
-                      <Link to={child.route}>
+                      <Link to={`/home${child.route}`}>
                         {child.name}
                       </Link>
                     </Menu.Item>)
@@ -96,7 +103,7 @@ function Home() {
                 </SubMenu>)
               } else {
                 return (<Menu.Item key={item.name_en} >
-                  <Link to={item.route}>
+                  <Link to={`/home${item.route}`}>
                     {item.name}
                   </Link>
                 </Menu.Item>)
@@ -106,7 +113,8 @@ function Home() {
         </Col>
         <Col span={18}>
           右边内容
-    </Col>
+          {/* <CommodityList></CommodityList> */}
+        </Col>
       </Row>
     </div>
   );
