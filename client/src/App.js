@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:12:47
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-12 21:23:25
+ * @LastEditTime: 2020-05-19 11:51:21
  * @Description: 
  */
 import React from 'react';
@@ -10,6 +10,7 @@ import './App.css';
 import Login from "./pages/login/login"
 import Register from "./pages/register/register"
 import Home from "./pages/home/home"
+import Footer from "./components/footer/footer"
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +35,7 @@ const routes = [
 
 function App() {
   return (
+    <>
     <Router>
       <Switch>
         <Route path="/" exact>
@@ -48,6 +50,8 @@ function App() {
         )}
       </Switch>
     </Router>
+    <Footer></Footer>
+    </>
   );
 }
 
