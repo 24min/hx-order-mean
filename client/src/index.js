@@ -2,17 +2,23 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:12:47
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-14 22:16:38
+ * @LastEditTime: 2020-05-21 20:42:50
  * @Description: file content
- */ 
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { StoreContext } from "redux-react-hook";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { commodityReducer } from './reduer/reduer'
 
+const store = createStore(commodityReducer)
 ReactDOM.render(
-  <App />,
+  <StoreContext.Provider value={store}>
+    <App />
+  </StoreContext.Provider>,
   document.getElementById('fanjf')
 );
 

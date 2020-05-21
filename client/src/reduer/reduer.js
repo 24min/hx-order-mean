@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-20 20:34:43
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-20 21:48:16
+ * @LastEditTime: 2020-05-21 20:50:33
  * @Description: file content
  * 
  * state = [{
@@ -23,27 +23,32 @@
  * }
  */
 
-const commodityReducer = (state, action) => {
-    let index = state.findIndex(item => item.uid === action.info.uid)
+const commodityReducer = (state = [], action) => {
+    let index;
+    if (state.length > 0) {
+        index = state.findIndex(item => item.uid === action.info.uid)
+    } else {
+        index = -1
+    }
     switch (action.type) {
-        case 'increment':
-            console.log('sss',index)
+        case 'INCREMENT':
+            console.log('sss', index)
             if (index !== -1) {
-                state[index].num = state.commodity[index].num + 1
+                state[index].num = state[index].num + 1
             } else {
                 state.push({ ...action.info, 'num': 1 })
             }
-            return [...state.commodity];
-        case 'decrement':
+            return [...state];
+        case 'DECREMENT':
             if (state[index].num === 1) {
                 state.splice(index, 1)
             } else {
-                state[index].num = state.commodity[index].num - 1
+                state[index].num = state[index].num - 1
             }
-            return [...state.commodity];
+            return [...state];
         default:
             console.log('reducerDefault')
-            throw new Error();
+            return [...state];
     }
 }
 
