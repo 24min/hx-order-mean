@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-18 18:36:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-18 20:21:18
+ * @LastEditTime: 2020-05-23 14:50:06
  * @Description: commodity 商品
  */
 const commodity = (sequelize, DataTypes) => {
@@ -36,7 +36,7 @@ const commodity = (sequelize, DataTypes) => {
         name:{
             type: DataTypes.STRING,
             allowNull: false,
-            field: 'salesCount'
+            field: 'name'
         },
         /**价格 元*/
         price:{
