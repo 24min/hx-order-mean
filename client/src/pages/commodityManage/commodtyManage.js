@@ -2,12 +2,12 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-25 21:12:16
+ * @LastEditTime: 2020-05-25 21:39:40
  * @Description: 商品管理 组件
  */
 import React, { useState, useEffect } from 'react'
 import { getCommdityList } from "../../api/service/commdityService"
-import { Table, Button, Space, Tooltip, Modal, Form, Input } from 'antd'
+import { Table, Button, Space, Tooltip, Modal, Form, Input, message } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import "./commodityManage.scss"
 const edit = () => {
@@ -62,8 +62,8 @@ function CommodityManage() {
         })
     }, [num])
     /** 点击确认的按钮*/
-    const handleOk = () => {
-        console.log('ok')
+    const handleOk = (values) => {
+        console.log('ok', values)
         setNum(num + 1)
         setModelFlag(false)
     }
@@ -77,26 +77,59 @@ function CommodityManage() {
     }
     return (
         <>
-            <Button type="primary" onClick={open}>Primary</Button>
+            <Button type="primary" onClick={open}>添加商品</Button>
             <Table columns={columns} dataSource={commodityList} />
             <Modal
                 title="新建商品"
+                okText="创建"
+                cancelText="取消"
                 maskClosable={false}
                 visible={isShowcreate}
                 onCancel={handleCancel}
-                onOk={handleOk}
+                onOk={() => {
+                    form.validateFields().then(values => {
+                        form.resetFields();
+                        handleOk(values);
+                    }).catch(info => {
+                        message.error('error submit!!!')
+                    })
+                }}
             >
                 <Form form={form}
                     layout="vertical"
                     name="form_in_modal"
                     initialValues={{}}>
                     <Form.Item
-                        name="商品名称"
-                        label="name"
+                        name="name"
+                        label="商品名称"
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input the title of collection!',
+                                message: '请输入商品名称',
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        name="uid"
+                        label="商品编号"
+                        rules={[
+                            {
+                                required: true,
+                                message: '请输入商品名称',
+                            },
+                        ]}
+                    >
+                        <Input placeholder="商品编号是唯一的" />
+                    </Form.Item>
+                    <Form.Item
+                        name="price"
+                        label="商品售价"
+                        rules={[
+                            {
+                                required: true,
+                                message: '请输入商品名称',
                             },
                         ]}
                     >
