@@ -1,0 +1,10 @@
+.commodity{
+    padding:10px;
+    display:flex;
+    & .every-commodity{
+        flex-wrap: wrap;
+        & .img-container{
+             height:314px;
+        }
+    }
+}
