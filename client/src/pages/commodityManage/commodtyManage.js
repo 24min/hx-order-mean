@@ -2,11 +2,11 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-25 21:39:40
+ * @LastEditTime: 2020-05-25 22:10:12
  * @Description: 商品管理 组件
  */
 import React, { useState, useEffect } from 'react'
-import { getCommdityList } from "../../api/service/commdityService"
+import { getCommdityList, addCommodity } from "../../api/service/commdityService"
 import { Table, Button, Space, Tooltip, Modal, Form, Input, message } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import "./commodityManage.scss"
@@ -64,8 +64,15 @@ function CommodityManage() {
     /** 点击确认的按钮*/
     const handleOk = (values) => {
         console.log('ok', values)
-        setNum(num + 1)
-        setModelFlag(false)
+        addCommodity({ ...values, 'price': parseFloat(values.price) }).then(res => {
+            if (res.code === 200) {
+                setNum(num + 1)
+                setModelFlag(false)
+                message.success('商品新建成功！')
+            } else {
+                message.error('商品新建失败！')
+            }
+        })
     }
     /**取消 */
     const handleCancel = () => {
@@ -88,8 +95,8 @@ function CommodityManage() {
                 onCancel={handleCancel}
                 onOk={() => {
                     form.validateFields().then(values => {
-                        form.resetFields();
                         handleOk(values);
+                        form.resetFields();
                     }).catch(info => {
                         message.error('error submit!!!')
                     })
