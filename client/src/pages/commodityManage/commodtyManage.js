@@ -2,11 +2,11 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-26 19:20:12
+ * @LastEditTime: 2020-05-26 19:53:38
  * @Description: 商品管理 组件
  */
 import React, { useState, useEffect } from 'react'
-import { getCommdityList, addCommodity } from "../../api/service/commdityService"
+import { getCommdityList, addCommodity, updateCommodity } from "../../api/service/commdityService"
 import { Table, Button, Space, Tooltip, Modal, Form, Input, message } from 'antd'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import "./commodityManage.scss"
@@ -77,6 +77,16 @@ function CommodityManage() {
                 }
             })
         } else {
+            updateCommodity({ ...values, 'price': parseFloat(values.price) }).then(res => {
+                if (res.code === 200) {
+                    setNum(num + 1)
+                    setModelFlag(false)
+                    message.success('商品修改成功！')
+                } else {
+                    message.error('商品修改失败,请联系开发人员定位问题')
+                }
+            }
+            )
             console.log(type)
         }
     }
@@ -135,7 +145,7 @@ function CommodityManage() {
                             },
                         ]}
                     >
-                        <Input placeholder="商品编号是唯一的" />
+                        <Input placeholder="商品编号是唯一的" disabled={isCreate ? false : true} />
                     </Form.Item>
                     <Form.Item
                         name="price"
