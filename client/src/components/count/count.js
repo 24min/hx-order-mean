@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-20 19:59:21
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-23 13:10:54
+ * @LastEditTime: 2020-05-26 19:21:33
  * @Description: 数量组件
  */
 import React from 'react'
@@ -24,7 +24,7 @@ function Count(props) {
     console.log(props.info.uid, num)
     return (
         <div className="count">
-            {num == 0 ? '' : <MinusCircleOutlined onClick={() => dispatch({ type: "DECREMENT", info: { ...props.info } })} />}{num}<PlusCircleOutlined onClick={() => dispatch({ type: "INCREMENT", info: { ...props.info } })} />
+            {num === 0 ? '' : <MinusCircleOutlined onClick={() => dispatch({ type: "DECREMENT", info: { ...props.info } })} />}{num}<PlusCircleOutlined onClick={() => dispatch({ type: "INCREMENT", info: { ...props.info } })} />
         </div>
     )
 }
