@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-23 14:49:13
+ * @LastEditTime: 2020-05-26 20:42:24
  * @Description: 浏览选购商品组件
  */
 import React, { useState, useEffect } from 'react'
@@ -27,7 +27,7 @@ function CommodityList() {
     return (
         <div className="commodity">
             {commodityList.map(item => (
-                <Card title={item.name} className="every-commodity" key={item.id} style={{ width: 300 }} hoverable>
+                <Card title={item.name} className="every-commodity" key={item.id} hoverable>
                     <img src="http://scimg.jianbihuadq.com/tupian/202001/2020010721232154.jpg" width="100%" height="100%"></img>
                     <Statistic value={item.price} precision={2} suffix="元"/>
                     <Count info={item}></Count>

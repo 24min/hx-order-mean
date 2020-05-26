@@ -1,8 +1,12 @@
 .commodity{
     padding:10px;
     display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
     & .every-commodity{
-        flex-wrap: wrap;
+        width:200px;
+        margin-top:10px;
         & .img-container{
              height:314px;
         }
