@@ -2,13 +2,13 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-26 19:53:38
+ * @LastEditTime: 2020-05-26 21:05:57
  * @Description: 商品管理 组件
  */
 import React, { useState, useEffect } from 'react'
 import { getCommdityList, addCommodity, updateCommodity } from "../../api/service/commdityService"
 import { Table, Button, Space, Tooltip, Modal, Form, Input, message } from 'antd'
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, ReloadOutlined } from '@ant-design/icons';
 import "./commodityManage.scss"
 function CommodityManage() {
     const [form] = Form.useForm();//表单的hooks
@@ -103,6 +103,7 @@ function CommodityManage() {
     return (
         <>
             <Button type="primary" onClick={open}>添加商品</Button>
+            <Button shape="circle" icon={<ReloadOutlined />} onClick={() => setNum(num + 1)}></Button>
             <Table columns={columns} dataSource={commodityList} />
             <Modal
                 title={isCreate ? "新建商品" : "修改商品"}
