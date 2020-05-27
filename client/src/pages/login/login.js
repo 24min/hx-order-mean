@@ -2,13 +2,14 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 20:11:42
+ * @LastEditTime: 2020-05-27 20:31:36
  * @Description: file content
  */
 import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { userLogin } from '../../api/service/userService'
 import './login.scss';
 
 const layout = {
@@ -23,8 +24,16 @@ const tailLayout = {
 function Login() {
     let history = useHistory();
     const onFinish = (value) => {
+        userLogin(value).then(res => {
+            if (res.code === 200) {
+                localStorage.setItem('token',res.data)
+                history.push('/home')
+            } else {
+                alert('登录失败')
+            }
+        })
         console.log('value', value)
-        history.push('/home')
+
     }
     return (
         <div className="login">
@@ -37,7 +46,7 @@ function Login() {
                 >
                     <Form.Item
                         label="用户名"
-                        name="userName"
+                        name="jobNumber"
                         rules={[{ required: true, message: 'Please input your username!' }]}
                     >
                         <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />

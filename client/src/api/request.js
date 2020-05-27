@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-04-01 19:47:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-16 14:56:57
+ * @LastEditTime: 2020-05-27 20:33:05
  * @Description: 公共请求方法的文件
  */
 import React from 'react';

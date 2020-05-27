@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:32:15
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-12 18:35:33
+ * @LastEditTime: 2020-05-27 20:07:31
  * @Description: 用户模块前缀
  */
 import { callHttp } from "../request"
@@ -17,7 +17,11 @@ const getUserList = (params) => {
 const addUser = (params) => {
     return callHttp(`${productPrefix.userPrefix}/register`, 'post',params)
 }
+const userLogin = (params) =>{
+    return callHttp(`${productPrefix.userPrefix}/login`,'post',params)
+}
 export {
     getUserList,
-    addUser
+    addUser,
+    userLogin
 }
