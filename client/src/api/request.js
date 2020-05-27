@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-04-01 19:47:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-27 20:33:05
+ * @LastEditTime: 2020-05-27 21:20:43
  * @Description: 公共请求方法的文件
  */
 import React from 'react';
@@ -11,6 +11,7 @@ import axios from 'axios'
 import { defaultConfig } from "../api/config"
 import { dataType, isEmptyObject, isEmptyArray, keywordFormat, downloadFile } from "../common/tools"
 import { Spin, notification } from 'antd';
+import { useHistory } from "react-router-dom";
 
 let num = 0
 let token = localStorage.getItem('token') || ''
@@ -81,6 +82,11 @@ const callHttp = (url, method, requestParams = {}, customizeConfig = {}) => {
             })
         } else {
             console.log('error1', error.response)
+            if(error.response.status === 401){
+                // let history = useHistory();
+                // history.push('/login')
+                localStorage.clear()
+            }
             let errors = "";
             if (dataType(error.response.data, 'object')) {
                 const key = ['message', 'error', 'exception']

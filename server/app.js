@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-04 13:10:33
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-18 20:15:20
+ * @LastEditTime: 2020-05-27 21:05:56
  * @Description: file content
  */ 
 const Koa = require('koa')
@@ -12,7 +12,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
-
+const token = require('./validateToken')
 const index = require('./routes/index')
 const users = require('./routes/usersRoutes')
 const commodity = require('./routes/commodityRoutes')
@@ -39,6 +39,7 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+app.use(token())
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())

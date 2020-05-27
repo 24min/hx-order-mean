@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-18 18:38:23
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-26 19:47:16
+ * @LastEditTime: 2020-05-27 21:08:10
  * @Description: file content 商品
  */
 const CommodityModule = require('../modules/commodityModules')
@@ -11,7 +11,7 @@ class CommodityControler {
         const { query } = ctx.request
         try {
             const data = await CommodityModule.commodityList(query)
-            console.log('ssss', data)
+            // console.log('ssss', data)
             ctx.response.status = 200;
             ctx.body = {
                 code: 200,
