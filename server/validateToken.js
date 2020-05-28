@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-27 20:51:36
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-27 21:16:24
+ * @LastEditTime: 2020-05-28 19:39:20
  * @Description: token验证
  */
 const jwt = require('jsonwebtoken')
@@ -13,8 +13,7 @@ const verify = util.promisify(jwt.verify)
 module.exports = function () {
     return async function (ctx, next) {
         // 设置接口白名单，不进行token验证
-        if (ctx.url === '/users/login') {
-            console.log('sssssssssss')
+        if (ctx.url === '/api/users/login') {
             await next()
         } else {
             try {

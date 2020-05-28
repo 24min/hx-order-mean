@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-04-01 19:47:50
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-27 21:20:43
+ * @LastEditTime: 2020-05-28 19:38:45
  * @Description: 公共请求方法的文件
  */
 import React from 'react';
@@ -14,7 +14,6 @@ import { Spin, notification } from 'antd';
 import { useHistory } from "react-router-dom";
 
 let num = 0
-let token = localStorage.getItem('token') || ''
 function showLoading(tip) {
     if (num === 0) {
         let dom = document.createElement('div')
@@ -31,6 +30,7 @@ function hideLoading() {
     }
 }
 const callHttp = (url, method, requestParams = {}, customizeConfig = {}) => {
+    let token = localStorage.getItem('token') || ''
     method = method.toLowerCase();
     let resultConfig = { ...defaultConfig, ...customizeConfig }
     const httpInstance = axios.create({
