@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-07 20:13:18
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-18 18:28:37
+ * @LastEditTime: 2020-05-27 19:51:22
  * @Description: file content
  */
 const db = require('../config/db')
@@ -38,6 +38,7 @@ class UserModule {
             ...result
         })
     }
+
 }
 
 module.exports = UserModule;

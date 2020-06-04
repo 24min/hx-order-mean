@@ -2,11 +2,11 @@
  * @Author: 24min
  * @Date: 2020-05-11 20:32:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 20:55:32
+ * @LastEditTime: 2020-05-27 20:30:46
  * @Description: 数据
  */
 const defaultConfig = {
-    timeout: 10000, //设置超时时间
+    timeout: 30000, //设置超时时间
     isAutoDeletEmpty: true, //是否自动删除请求参数中的空对象 空数组 空对象 空值
     loading: false,  //请求的接口是否启用loading
     loadingText: "拼命加载中>_<",//自定义loading的加载文案
