@@ -1,5 +1,18 @@
-.car{
+.car {
     position: fixed;
-    bottom: 20px;
-    right:30px;
+    bottom: 40px;
+    right: 30px;
+}
+
+.list{
+    height:30px;
+    margin-top:10px;
+}
+
+.name{
+    float: left;
+    font-weight: bold;
+}
+.car-counter{
+    float: right;
 }
