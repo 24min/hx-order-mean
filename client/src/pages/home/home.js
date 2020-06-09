@@ -2,7 +2,7 @@
  * @Author: 24min
  * @Date: 2020-05-12 20:27:41
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-19 20:11:55
+ * @LastEditTime: 2020-06-09 18:55:31
  * @Description: 主页 
  * 左导航分为  
  * 商品信息(商品列表 商品管理【普通用户无法查看设置服务费等 什么时候开放购买等】 商品统计【普通用户无法查看，比如销量统计】 )
@@ -25,6 +25,7 @@ import UserManage from '../userManage/userManage'
 import CommodityManage from '../commodityManage/commodtyManage'
 import AnnouncementManage from '../announcementManage/announcementManage'
 import NoMatch from '../../components/noMatch/noMatch'
+import Car from '../../components/car/car'
 
 import './home.scss';
 
@@ -158,6 +159,7 @@ function Home() {
               <NoMatch />
             </Route>
           </Switch>
+          <Car></Car>
         </Col>
       </Row>
     </div>

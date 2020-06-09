@@ -2,14 +2,13 @@
  * @Author: 24min
  * @Date: 2020-05-19 19:02:49
  * @LastEditors: 24min
- * @LastEditTime: 2020-05-26 20:42:24
+ * @LastEditTime: 2020-06-09 18:54:07
  * @Description: 浏览选购商品组件
  */
 import React, { useState, useEffect } from 'react'
 import { Card,Statistic } from 'antd'
 import { getCommdityList } from "../../api/service/commdityService"
 import Count from "../../components/count/count"
-import Car from "../../components/car/car"
 import "./commodityList.scss"
 
 function CommodityList() {
@@ -33,7 +32,6 @@ function CommodityList() {
                     <Count info={item}></Count>
                 </Card>
             ))}
-            <Car></Car>
         </div>
     )
 }
