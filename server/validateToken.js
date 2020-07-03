@@ -10,10 +10,11 @@ const secret = require('./config/secret.json')
 const util = require('util')
 const verify = util.promisify(jwt.verify)
 
+const whiteList = ['/api/users/login', '/api/users/register']
 module.exports = function () {
     return async function (ctx, next) {
         // 设置接口白名单，不进行token验证
-        if (ctx.url === '/api/users/login') {
+        if (whiteList.includes(ctx.url)) {
             await next()
         } else {
             try {
